@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+
+	<ui:composition>
+
+		<ul class="breadcrumb">
+		 <ui:repeat var="rastro" value="#{miga.rastro}" varStatus="status">
+		 	<li><i class="icon-home"></i> 
+			<a href="index.html">${rastro}</a> <i
+				class="icon-angle-right"></i></li>
+		 </ui:repeat>
+			
+		</ul>
+
+	</ui:composition>
+
+</body>
+</html>
