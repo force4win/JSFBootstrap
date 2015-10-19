@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<ui:composition>
+
+
+		<div class="row-fluid hideInIE8 circleStats">
+
+			<ui:repeat var="item" value="#{lista}" varStatus="status">
+			
+				<div class="span2" onTablet="span4" onDesktop="span2">
+				<div class="circleStatsItemBox #{colorsPercent.color}">
+					<div class="header">#{item.encabezado}--#{id}</div>
+					<span class="percent">#{item.label}</span>
+					<div class="circleStat">
+						<input type="text" value="#{item.value}" class="whiteCircle" />
+					</div>
+					<div class="footer">
+						<span class="count"> <span class="number"></span> <span
+							class="unit"></span>
+						</span> <span class="sep"> / </span> <span class="value"> <span
+							class="number">#{item.totalValue}</span> <span class="unit">#{item.unitOfValue}</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			</ui:repeat>
+
+
+
+			
+		</div>
+	</ui:composition>
+</h:body>
+</html>

@@ -10,12 +10,16 @@
 	<namespace>http://alv.com/facelet</namespace>	
 	<tag>
 		<tag-name>comboButton </tag-name>
-		<source>customTag/percent/button.xhtml</source>
+		<source>customTag/alvtags/button.xhtml</source>
 		
 	</tag>
 	<tag>
 		<tag-name>percent</tag-name>
-		<source>customTag/percent/percent.xhtml</source>
+		<source>customTag/alvtags/percent.xhtml</source>
+	</tag>
+	<tag>
+		<tag-name>timeline</tag-name>
+		<source>customTag/alvtags/timeline.xhtml</source>
 	</tag>
 </facelet-taglib>
 
