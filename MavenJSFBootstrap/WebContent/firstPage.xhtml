@@ -6,8 +6,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:alv="http://alv.com/facelet"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:alv2="http://java.sun.com/jsf/composite/mykong"
-	xmlns:util="http://java.sun.com/jsf/composite/util"
+	xmlns:alv2="http://java.sun.com/jsf/composite/alv"
+	
 	>
 <h:body>
 
@@ -28,7 +28,7 @@
 			<h:commandButton 
 			actionListener="#{firstBean.accionRemota}"
 				value="Solo el ultimo boton">
-				<f:ajax execute="@form" render="especialGood:especialGood rss_button:rss_button campoTexto" />
+				<f:ajax execute="@form" render=":formTemplate:especialGood:especialGood campoTexto" />
 			</h:commandButton>
 			
 			<h:panelGroup id="campoTexto">
