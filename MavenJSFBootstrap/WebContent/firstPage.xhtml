@@ -6,26 +6,42 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:alv="http://alv.com/facelet"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:alv2="http://java.sun.com/jsf/composite/mykong">
+	xmlns:alv2="http://java.sun.com/jsf/composite/mykong"
+	xmlns:util="http://java.sun.com/jsf/composite/util"
+	>
 <h:body>
 
 	<ui:composition template="/template/template.xhtml">
 
 		<ui:define name="content">
-
-			<h:commandButton actionListener="#{firstBean.accionRemota}"
+		
+			 <alv:customComponent custommsg="Mensaje pasado como parametro en el xhtml" ></alv:customComponent>
+			 
+		<hr />
+			 
+			<h:commandButton 
+				actionListener="#{firstBean.accionRemota}"
 				value="algo">
-				<f:ajax execute="@form" render="componenteTest" />
+				<f:ajax execute="@form" render="componenteTest campoTexto" />
 			</h:commandButton>
 			
-
+			<h:commandButton 
+			actionListener="#{firstBean.accionRemota}"
+				value="Solo el ultimo boton">
+				<f:ajax execute="@form" render="especialGood:especialGood rss_button:rss_button campoTexto" />
+			</h:commandButton>
+			
+			<h:panelGroup id="campoTexto">
+				<h:outputLabel value="#{firstBean.cantidad}"></h:outputLabel>
+			</h:panelGroup>
+			
 			<h:panelGroup id="componenteTest">
 
 				<div class="row-fluid">
 					<alv2:specialButton label="Mensajes" cant="#{firstBean.cantidad}"
-						color="blue" icono="icon-rss"
-						 
-						updateRenderTarget="componenteTest"
+						id = "rss_button"
+						color="green" icono="icon-rss"
+						renderRemote="@this :formTemplate:campoTexto"						
 						eventHandler="#{firstBean.accionRemota}" ></alv2:specialButton>
 						
 						<alv2:specialButton label="Galeria" cant="#{firstBean.cantidad}"
@@ -33,18 +49,21 @@
 						eventHandler="#{firstBean.accionRemota}" />
 						
 						<alv2:specialButton label="Pagar" cant="#{firstBean.cantidad}"
+						id="especialGood"
+						renderRemote=":formTemplate:rss_button:rss_button"
 						color="pink" icono="icon-credit-card"
 						eventHandler="#{firstBean.accionRemota}" />
 				</div>
 			</h:panelGroup>
 			
-			
+			<alv:marquee value="CAMINANDO"></alv:marquee>
 			<alv:timeline lista="#{firstBean.task}" title="Log de tareas"></alv:timeline>
-			<alv:percent lista="#{firstBean.items}" id="buenas"></alv:percent>
+			
+			
 
 			<alv:comboButton buttonResetLabel="RESETEAR" />
-
-
+<alv:marquee value="debajo de resetear"></alv:marquee>
+<alv:percent lista="#{firstBean.items}" id="buenas"></alv:percent>
 			<alv:timeline lista="#{firstBean.task}" title="LAS TAREAS"></alv:timeline>
 
 		</ui:define>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	
+    <!-- Use this iff Annotations (@FacesComponent) is not being used, both serve the same purpose. -->
+    <component>
+        <component-type>com.himanshu.jsf.custom.marquee</component-type>
+        <component-class>com.himanshu.jsf.custom.component.marquee.MarqueeComponent</component-class>
+    </component>
+    <component>
+		<component-type>HtmlCustomComponent</component-type> 
+		<component-class>com.autentia.jsf.showcase.component.HtmlCustomComponent</component-class>
+	</component>
+</faces-config>

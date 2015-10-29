@@ -9,10 +9,13 @@
 
 <composite:interface>
 
-	<composite:attribute name="label" />
+	<composite:attribute name="id" type="java.lang.String" />
+	<composite:attribute name="label" type="java.lang.String" />
 	<composite:attribute name="cant" />
 	<composite:attribute name="color" />
 	<composite:attribute name="icono" />
+	
+	<composite:attribute name="renderRemote" type="java.lang.String" />
 
 	<composite:attribute name="eventHandler" 
 		method-signature="java.lang.String action()" />
@@ -24,11 +27,12 @@
 
 	
 		<h:commandLink actionListener="#{cc.attrs.eventHandler}"
+			id="#{cc.attrs.id}"
 			styleClass="quick-button metro #{cc.attrs.color}   span2">
 			<i class="#{cc.attrs.icono}"></i>
 			<p>#{cc.attrs.label}</p>
 			<span class="badge">#{cc.attrs.cant}</span>
-			<f:ajax execute="@form" render="@this" />
+			<f:ajax execute="@form" render="@this #{cc.attrs.renderRemote}" />
 		</h:commandLink>
 	
 
