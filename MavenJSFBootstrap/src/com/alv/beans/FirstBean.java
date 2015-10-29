@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.alv.base.classes.PercentItem;
 import com.alv.base.classes.TimeLineItem;
@@ -20,6 +21,8 @@ public class FirstBean implements Serializable {
 	private List<TimeLineItem> task;
 	
 	private String cantidad;
+	private String firstName;
+	private String lastName;
 	
 	public FirstBean() {
 		
@@ -28,7 +31,7 @@ public class FirstBean implements Serializable {
 	
 	
 	
-	public void accionRemota() {
+	public void accionRemota( ) {
 		System.out.println("llego al metodo");
 		cantidad="" + (Integer.parseInt(cantidad)+1);
 	}
@@ -56,7 +59,7 @@ public class FirstBean implements Serializable {
 		items= new ArrayList<PercentItem>();
 		
 		
-		for(int i = 0; i < 10; i++) {
+		for(int i = 0; i < 20; i++) {
 			
 			items.add(new PercentItem("Enca " + i, "label " + i,String.valueOf((int)(Math.random()*100d)), "20" + (i*10), "MG" + i));
 		}
@@ -91,6 +94,30 @@ public class FirstBean implements Serializable {
 
 	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
+	}
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	
