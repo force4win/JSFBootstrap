@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+	
+	<composite:attribute name="indicador" type="com.alv.base.classes.IndicatorReporterItem"/>
+	
+	<composite:attribute name="renderRemote" type="java.lang.String" />
+
+	<composite:attribute name="eventHandler" 
+		method-signature="java.lang.String action()" />
+	
+
+</composite:interface>
+
+<composite:implementation>
+
+		
+		<div class="span3 statbox purple" onTablet="span6" onDesktop="span3">
+					<div class="boxchart">#{cc.attrs.indicador.values}
+					
+					</div>
+					<div class="number">#{cc.attrs.indicador.valueToday}<i class="#{cc.attrs.indicador.icono}"></i></div>
+					<div class="title">#{cc.attrs.indicador.title}</div>
+					<div class="footer">
+						<h:commandLink target="#{cc.attrs.indicador.externalLink}" >#{cc.attrs.indicador.footerLabel}</h:commandLink>
+					</div>	
+				</div>
+	
+
+</composite:implementation>
+
+</html>

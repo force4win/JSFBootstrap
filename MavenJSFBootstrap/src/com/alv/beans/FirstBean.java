@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.event.ActionEvent;
 
+import com.alv.base.classes.IndicatorReporterItem;
 import com.alv.base.classes.PercentItem;
 import com.alv.base.classes.TimeLineItem;
 
@@ -24,8 +24,12 @@ public class FirstBean implements Serializable {
 	private String firstName;
 	private String lastName;
 	
+	
+	IndicatorReporterItem indicador;
+	
 	public FirstBean() {
 		
+		indicador = new IndicatorReporterItem("50,41,10,90,200,15,0", "546", "ventas", "icon-tasks", "http://www.google.com.co", "Ver reporte completo");
 		cantidad="45";
 	}
 	
@@ -57,10 +61,7 @@ public class FirstBean implements Serializable {
 
 	public List<PercentItem> getItems() {
 		items= new ArrayList<PercentItem>();
-		
-		
 		for(int i = 0; i < 20; i++) {
-			
 			items.add(new PercentItem("Enca " + i, "label " + i,String.valueOf((int)(Math.random()*100d)), "20" + (i*10), "MG" + i));
 		}
 		
@@ -73,7 +74,7 @@ public class FirstBean implements Serializable {
 
 	public List<TimeLineItem> getTask() {
 		task = new ArrayList<TimeLineItem>();
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 100; i++) {
 			task.add(new TimeLineItem("subject "+i, "message "+i, "remaningTime "+i, "icon-adjust", i+":43 PM"));
 			
 		}
@@ -118,6 +119,18 @@ public class FirstBean implements Serializable {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+
+
+	public IndicatorReporterItem getIndicador() {
+		return indicador;
+	}
+
+
+
+	public void setIndicador(IndicatorReporterItem indicador) {
+		this.indicador = indicador;
 	}
 	
 	
