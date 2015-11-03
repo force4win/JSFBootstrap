@@ -11,9 +11,8 @@ import com.alv.base.classes.IndicatorReporterItem;
 import com.alv.base.classes.PercentItem;
 import com.alv.base.classes.TimeLineItem;
 
-@ManagedBean
 @SessionScoped
-public class FirstBean implements Serializable {
+public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	 
 	private String name;
@@ -29,7 +28,7 @@ public class FirstBean implements Serializable {
 	
 	IndicatorReporterItem indicador;
 	
-	public FirstBean() {
+	public UserBean() {
 		
 		indicador = new IndicatorReporterItem("50,41,10,90,200,15,0", "546", "ventas", "icon-tasks", "http://www.google.com.co", "Ver reporte completo");
 		cantidad="45";

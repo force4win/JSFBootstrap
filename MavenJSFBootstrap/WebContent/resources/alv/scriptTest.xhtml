@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+
+	
+	<composite:attribute name="label" type="java.lang.String" />
+	
+	<composite:attribute name="valor" />
+	
+	
+	<composite:attribute name="renderRemote" type="java.lang.String" />
+
+	<composite:attribute name="eventHandler" 
+		method-signature="java.lang.String action()" />
+	
+
+</composite:interface>
+
+<composite:implementation>
+
+	<script>
+		function mensajeAlerta() {
+			debugger;
+			$("##{cc.attrs.clientId}_boton").css("border","5px solid black");
+		}
+	</script>
+	<h:panelGrid id="controlInterno">
+		<div class="row-fluid">		
+			<div class="span3" id="nombreControl">#{cc.attrs.label}</div>
+			<div class="span3">#{cc.attrs.value}</div>
+			<div class="span3"><h:inputText value="#{cc.attrs.value}"></h:inputText>  </div>
+			
+			<div class="span3">
+				<h:commandButton id="jsf" actionListener="#{cc.attrs.eventHandler}" value="Enviar JSF" onclick="mensajeAlerta(this);">
+					<f:ajax execute="@form" render=":formTemplate:j_idt11:controlInterno" />
+				</h:commandButton>
+			 </div>
+		</div>
+	</h:panelGrid>
+	<div style="border:5px solid black;">
+	#{component.parent.clientId}----
+	#{cc.attrs.clientId}
+	</div>
+	
+
+</composite:implementation>
+
+</html>

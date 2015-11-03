@@ -15,6 +15,16 @@
 
 		<ui:define name="content">
 		
+		
+		<alv2:scriptTest 
+			label="Valor cambiante" 
+			value="#{firstBean.editable}" 
+			eventHandler="#{firstBean.accionRemotoEditable}" ></alv2:scriptTest>
+		
+		
+		<h1>TODO POR ENCIMA DE ESTE PUNTO ESTA SIENDO PROBADO PARA TENER CONTROL DE JAVASCRIPT</h1>
+		<hr />
+		
 			 <alv:customComponent custommsg="Mensaje pasado como parametro en el xhtml" ></alv:customComponent>
 			 <div class="row-fluid">
 			 	<alv2:indicador indicador="#{firstBean.indicador}"></alv2:indicador>
