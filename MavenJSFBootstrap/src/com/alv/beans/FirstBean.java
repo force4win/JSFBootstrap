@@ -25,6 +25,7 @@ public class FirstBean implements Serializable {
 	private String lastName;
 	
 	private String editable;
+	private String editable2;
 	
 	
 	IndicatorReporterItem indicador;
@@ -151,6 +152,18 @@ public class FirstBean implements Serializable {
 
 	public void setEditable(String editable) {
 		this.editable = editable;
+	}
+
+
+
+	public String getEditable2() {
+		return editable2;
+	}
+
+
+
+	public void setEditable2(String editable2) {
+		this.editable2 = editable2;
 	}
 	
 	

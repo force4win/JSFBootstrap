@@ -825,3 +825,45 @@
  margin: 200px;
 }
 
+
+
+
+
+.editableLabel {
+		vertical-align: middle;
+	    line-height: 30px;
+        
+	    
+	    border-radius: 10px;
+	    padding:4px;
+	   -webkit-font-smoothing: antialiased;
+		background-color: rgb(224, 218, 217);
+		background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.14902) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.14902) 50%, rgba(255, 255, 255, 0.14902) 75%, transparent 75%, transparent);
+		background-repeat: repeat-x;
+		background-size: 40px 40px;
+		box-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px 0px inset;
+		box-sizing: border-box;		
+		display: block;
+		float: left;
+		height: 14px;
+		line-height: 20px;
+		
+		transition-delay: 0s;
+		transition-duration: 0.6s;
+		transition-property: width;
+		transition-timing-function: ease;
+
+	}
+
+	
+	.tam-icon {
+		height: 25px;
+		width: 25px;
+	}
+	
+	.glyphicons-icon.ok-correction {
+		    background-position: -386px -912px;
+	}
+	.glyphicons-icon.remove-correction{
+		background-position: -338px -912px;
+	}
