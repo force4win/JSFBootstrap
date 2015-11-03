@@ -24,29 +24,101 @@
 </composite:interface>
 
 <composite:implementation>
-
-	<script>
-		function mensajeAlerta() {
+	
+	<style>
+	.editableLabel {
+		vertical-align: middle;
+	    line-height: 30px;
+	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			initialize();
+		});
+		
+		function initialize() {
+			var idValor = "#{cc.attrs.clientId}Valor";
+			var idInput = "#{cc.attrs.clientId}InputValue";
+			var idNombreControl = "#{cc.attrs.clientId}NombreControl";
+			
+			var editable = $(scapeId(idNombreControl)).attr("editable");
+			if(editable==undefined) {
+				$(scapeId(idNombreControl)).attr("editable","false");
+			}
+			editable = $(scapeId(idNombreControl)).attr("editable");		
+			if(editable == "true") {
+				$(scapeId(idInput)).css("display","");
+				$(scapeId(idValor)).css("display","none");
+			} else {
+				$(scapeId(idInput)).css("display","none");
+				$(scapeId(idValor)).css("display","");
+			}
+			
+		}
+		function keyListenerEditable(event) {
 			debugger;
-			$("##{cc.attrs.clientId}_boton").css("border","5px solid black");
+			var idValor = "#{cc.attrs.clientId}Valor";
+			var idInput = "#{cc.attrs.clientId}InputValue";
+			var idNombreControl = "#{cc.attrs.clientId}NombreControl";
+			
+			if(event.keyCode == "13") {
+				var valorTemporal = $(scapeId(idInput)).children().val();
+				$(scapeId(idValor)).html(valorTemporal);
+				event.preventDefault();
+				event.stopPropagation();
+				editable4Value();
+				return false;
+			}
+			
+			if(event.keyCode == "27") {
+				
+				var valorTemporal = $(scapeId(idValor)).html();
+				$(scapeId(idInput)).children().val(valorTemporal);
+				event.preventDefault();
+				event.stopPropagation();
+				editable4Value();
+				return false;
+			}
+			
+			
+		}
+		function editable4Value() {
+			var idValor = "#{cc.attrs.clientId}Valor";
+			var idInput = "#{cc.attrs.clientId}InputValue";
+			var idNombreControl = "#{cc.attrs.clientId}NombreControl";
+			var editable = $(scapeId(idNombreControl)).attr("editable");		
+			if(editable == "true") {
+				$(scapeId(idInput)).css("display","none");
+				$(scapeId(idValor)).css("display","");
+				$(scapeId(idNombreControl)).attr("editable","false");
+			} else {
+				debugger;
+				$(scapeId(idInput)).css("display","");
+				$($(scapeId(idInput)).children()).focus();
+				$(scapeId(idValor)).css("display","none");
+				$(scapeId(idNombreControl)).attr("editable","true");
+			}
 		}
 	</script>
-	<h:panelGrid id="controlInterno">
-		<div class="row-fluid">		
-			<div class="span3" id="nombreControl">#{cc.attrs.label}</div>
-			<div class="span3">#{cc.attrs.value}</div>
-			<div class="span3"><h:inputText value="#{cc.attrs.value}"></h:inputText>  </div>
+	
+		<div class="row-fluid 	">		
+			<div class="span3 " id="#{cc.attrs.clientId}NombreControl">#{cc.attrs.label}</div>
+			<div class="span3 editableLabel" id="#{cc.attrs.clientId}Valor" onclick="editable4Value();" >#{cc.attrs.value}</div>
+			<div class="span3 " id="#{cc.attrs.clientId}InputValue" ><h:inputText class="margin-0X" value="#{cc.attrs.value}"  onkeydown="keyListenerEditable(event);"></h:inputText>  </div>
 			
-			<div class="span3">
+			<div class="span3 vertical-center">
 				<h:commandButton id="jsf" actionListener="#{cc.attrs.eventHandler}" value="Enviar JSF" onclick="mensajeAlerta(this);">
-					<f:ajax execute="@form" render=":formTemplate:j_idt11:controlInterno" />
+					<f:ajax execute="@form" render="@this" />
 				</h:commandButton>
 			 </div>
 		</div>
-	</h:panelGrid>
+	<div class="row-fluid 	">
 	<div style="border:5px solid black;">
+	<input type="button" value="intercambiar" onclick="mensajeAlerta();"></input>
+	<input type="button" value="editar" onclick="editable4Value();"></input>
 	#{component.parent.clientId}----
 	#{cc.attrs.clientId}
+	</div>
 	</div>
 	
 
